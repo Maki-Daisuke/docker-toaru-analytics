@@ -7,7 +7,7 @@ JSONベースのグラフデータを分析するために使いたいツール�
 
 ## Usage
 
-    git clone https://github.com/Maki-Daisuke/docker-toaru-analytics.git
+    git clone https://github.com/Maki-Daisuke/toaru-analytics.git
     cd docker-toaru-analytics/
     docker build .
 
