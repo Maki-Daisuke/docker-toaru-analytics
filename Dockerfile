@@ -1,10 +1,10 @@
-FROM ubuntu:18.04
+FROM ubuntu:18.10
 
 RUN apt update && apt upgrade -y                                      && \
     apt install -y curl jq graphviz webp imagemagick parallel         && \
     apt install -y nodejs npm                                         && \
     npm install -g n                                                  && \
-    n 10.13.0                                                         && \
+    n 10.16.3                                                         && \
     rm -rf `which n`  &&  apt purge -y nodejs npm                     && \
     apt autoremove -y &&  apt clean  &&  rm -rf /var/lib/apt/lists/*
 # Install system version of node.js and npm to install `n`, 
