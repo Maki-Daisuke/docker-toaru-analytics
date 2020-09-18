@@ -1,4 +1,7 @@
-FROM ubuntu:18.10
+FROM ubuntu:20.04
+
+# Prevent apt from stopping by interaction to install tzdata
+ENV DEBIAN_FRONTEND=noninteractive
 
 # Install system node.js and npm using apt to install `n`,
 # then install the specific version of node.js using `n`.
@@ -7,10 +10,10 @@ FROM ubuntu:18.10
 # Then, install Puppeteer's dependencies and Puppeteer.
 # See the following URL for the list of Puppeteer's dependencies:
 # https://github.com/GoogleChrome/puppeteer/blob/93843592da58efcb28cf740dd7dbfa9f04061fc8/docs/troubleshooting.md
-RUN apt update && apt upgrade -y                                            && \
+RUN apt update                                                              && \
     apt install -y curl jq graphviz webp imagemagick parallel               && \
     apt install -y nodejs npm                                               && \
-    npm install -g n  &&  n 10.16.3                                         && \
+    npm install -g n  &&  n 12.18.3                                         && \
     rm -rf `which n`  &&  apt purge -y nodejs npm                           && \
     apt install -y gconf-service libasound2 libatk1.0-0 libatk-bridge2.0-0     \
         libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1          \
